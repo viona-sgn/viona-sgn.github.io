@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viona Siagian – Actuarial Science Graduate</title>
+<meta name="description" content="Portfolio of Viona Siagian, Actuarial Science graduate from ITB based in Jakarta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F8FA; --surface:#FFFFFF; --ink:#12203A; --muted:#566678; --line:#D6DEE5; --accent:#0E7C70;
+  --head:'Bricolage Grotesque',Georgia,serif; --body:'Public Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0E1626; --surface:#15203A; --ink:#E8EEF5; --muted:#9AA9BB; --line:#26344F; --accent:#4FD1BF;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--body)}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+nav{display:flex;gap:22px;justify-content:flex-end;padding:22px 0;font-weight:500;font-size:.95rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+/* Hero: the one memorable element is the survival curve behind the name */
+.hero{position:relative;padding:64px 0 88px}
+.hero svg{position:absolute;right:0;top:20px;width:min(560px,90%);height:auto;z-index:0;opacity:.9}
+.hero .curve{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s .2s ease-out forwards}
+.hero .axis{stroke:var(--line);stroke-width:1}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.hero .curve{animation:none;stroke-dashoffset:0}}
+.hero h1,.hero p,.hero .cta{position:relative;z-index:1}
+h1{font:700 clamp(2.6rem,7vw,4.4rem)/1.02 var(--head);margin:0 0 20px;letter-spacing:-.02em}
+.lead{max-width:34ch;font-size:1.3rem;line-height:1.5;color:var(--ink);margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{color:var(--accent)}
+
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font:700 1.7rem/1.2 var(--head);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:180px 1fr;gap:8px 32px}
+.grid > .when{color:var(--muted);font-size:.95rem}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+h3{font:600 1.1rem/1.3 var(--body);margin:0}
+.sub{color:var(--muted);margin:2px 0 10px}
+ul{margin:0;padding-left:1.1em}
+li{margin-bottom:6px;max-width:68ch}
+.item{margin-bottom:34px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:16px}
+.project h3{margin-bottom:6px}
+.tags{color:var(--muted);font-size:.9rem;margin-top:10px}
+footer{padding:36px 0 56px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
+  </nav>
+
+  <header class="hero">
+    <svg viewBox="0 0 560 300" aria-hidden="true" focusable="false">
+      <line class="axis" x1="30" y1="270" x2="540" y2="270"/>
+      <line class="axis" x1="30" y1="270" x2="30" y2="20"/>
+      <path class="curve" d="M30 30 C 200 34, 330 60, 400 130 S 500 250, 540 266"/>
+    </svg>
+    <h1>Viona Siagian</h1>
+    <p class="lead">Actuarial Science graduate from ITB, with pricing experience at AXA Financial Indonesia. Based in Jakarta.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="#projects">See my work</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p style="max-width:62ch">I studied Actuarial Science at Institut Teknologi Bandung and recently completed an internship as a Pricing Actuary Intern at AXA Financial Indonesia. [Add 2–3 sentences: what kind of actuarial work you want to do, and what you enjoy about it.]</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="item grid">
+      <div class="when">[Month Year] – [Month Year]</div>
+      <div>
+        <h3>Pricing Actuary Intern</h3>
+        <p class="sub">AXA Financial Indonesia, Jakarta</p>
+        <ul>
+          <li>[Task 1: one specific thing you did, with a tool or method and a result]</li>
+          <li>[Task 2]</li>
+          <li>[Task 3]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <article class="project">
+      <h3>[Project name]</h3>
+      <p>[One or two sentences: the question you asked, the data you used, what you found.]</p>
+      <div class="tags">[Tools, e.g. R, Python, Excel] · <a href="https://github.com/[username]/[repo]">View on GitHub</a></div>
+    </article>
+    <article class="project">
+      <h3>[Project name]</h3>
+      <p>[Description.]</p>
+      <div class="tags">[Tools] · <a href="https://github.com/[username]/[repo]">View on GitHub</a></div>
+    </article>
+  </section>
+
+  <section id="credentials">
+    <h2>Education and credentials</h2>
+    <div class="item grid">
+      <div class="when">[Year] – [Year]</div>
+      <div><h3>B.Sc. Actuarial Science</h3><p class="sub">Institut Teknologi Bandung (ITB)</p></div>
+    </div>
+    <div class="item grid">
+      <div class="when">[Year]</div>
+      <div><h3>PAI actuarial certification</h3><p class="sub">Persatuan Aktuaris Indonesia · working toward ASAI</p></div>
+    </div>
+    <div class="item grid">
+      <div class="when">[Years]</div>
+      <div><h3>Bank Indonesia Scholarship</h3></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Open to entry-level actuarial roles in Jakarta.</p>
+    <p><a href="mailto:[your-email]">[your-email]</a> · <a href="https://www.linkedin.com/in/[your-profile]">LinkedIn</a> · <a href="https://github.com/[username]">GitHub</a></p>
+  </section>
+
+  <footer>© 2026 Viona Siagian</footer>
+</div>
+</body>
+</html>
