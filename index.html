@@ -26,20 +26,34 @@ nav{display:flex;gap:22px;justify-content:flex-end;padding:22px 0;font-weight:50
 nav a{color:var(--muted);text-decoration:none}
 nav a:hover{color:var(--ink)}
 
-/* Hero: the one memorable element is the survival curve behind the name */
-.hero{position:relative;padding:64px 0 88px}
-.hero svg{position:absolute;right:0;top:20px;width:min(560px,90%);height:auto;z-index:0;opacity:.9}
-.hero .curve{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s .2s ease-out forwards}
-.hero .axis{stroke:var(--line);stroke-width:1}
-@keyframes draw{to{stroke-dashoffset:0}}
-@media (prefers-reduced-motion:reduce){.hero .curve{animation:none;stroke-dashoffset:0}}
-.hero h1,.hero p,.hero .cta{position:relative;z-index:1}
-h1{font:700 clamp(2.6rem,7vw,4.4rem)/1.02 var(--head);margin:0 0 20px;letter-spacing:-.02em}
-.lead{max-width:34ch;font-size:1.3rem;line-height:1.5;color:var(--ink);margin:0 0 28px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
-.btn.primary{background:var(--accent);color:var(--bg)}
-.btn.ghost{color:var(--accent)}
+/* Hero: big name sits BEHIND a cut-out portrait (layering with z-index) */
+.hero{position:relative;min-height:100svh;background:#0A1322;color:#EAF0F7;overflow:hidden;--ac:#4FD1BF}
+.hero-inner{position:relative;max-width:1200px;margin:0 auto;min-height:100svh;padding:0 28px}
+.hero nav{position:relative;z-index:5;justify-content:flex-start;align-items:center;padding:24px 0}
+.hero nav a{color:#9FB0C4}
+.hero nav a:hover{color:#fff}
+.hero nav .brand{margin-right:auto;color:#fff;font-weight:600}
+.big{position:absolute;left:28px;top:16%;z-index:1;display:flex;flex-direction:column;margin:0;
+  font:700 clamp(4.2rem,16vw,14rem)/.86 var(--head);letter-spacing:-.04em;transition:transform .25s ease-out}
+.big span:last-child{color:transparent;-webkit-text-stroke:2px var(--ac)}
+.portrait{position:absolute;z-index:2;right:6%;bottom:0;height:80%;max-height:780px;width:auto;transition:transform .25s ease-out}
+.pill{position:absolute;z-index:3;padding:7px 14px;border-radius:999px;font-size:.9rem;font-weight:500;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+.p1{left:30%;top:12%}.p2{right:4%;top:46%}.p3{left:6%;bottom:30%}
+.blurb{position:absolute;z-index:3;left:28px;bottom:36px;max-width:34ch;margin:0;color:#C9D5E2;font-size:1.05rem}
+.blurb b{color:#fff}
+.card{position:absolute;z-index:3;right:28px;bottom:36px;text-align:right;padding:14px 18px;border-radius:10px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font-size:.9rem;line-height:1.5}
+.card small{display:block;color:#9FB0C4;font-size:.78rem}
+.card b{display:block;font-weight:600;margin-bottom:8px}
+.down{position:absolute;z-index:3;left:50%;bottom:28px;transform:translateX(-50%);width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.3);border-radius:50%;color:#fff;text-decoration:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:760px){
+  .p1,.p3,.card{display:none}.p2{right:6%;top:40%}
+  .portrait{height:56%;right:-4%}.blurb{bottom:84px;font-size:.95rem}
+}
+@media (prefers-reduced-motion:reduce){.big,.portrait{transition:none}}
 
 section{padding:48px 0;border-top:1px solid var(--line)}
 h2{font:700 1.7rem/1.2 var(--head);margin:0 0 20px}
@@ -58,24 +72,29 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:.9rem;border-top:1px sol
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav aria-label="Main">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
-  </nav>
-
-  <header class="hero">
-    <svg viewBox="0 0 560 300" aria-hidden="true" focusable="false">
-      <line class="axis" x1="30" y1="270" x2="540" y2="270"/>
-      <line class="axis" x1="30" y1="270" x2="30" y2="20"/>
-      <path class="curve" d="M30 30 C 200 34, 330 60, 400 130 S 500 250, 540 266"/>
-    </svg>
-    <h1>Viona Siagian</h1>
-    <p class="lead">Actuarial Science graduate from ITB, with pricing experience at AXA Financial Indonesia. Based in Jakarta.</p>
-    <div class="cta">
-      <a class="btn primary" href="#contact">Get in touch</a>
-      <a class="btn ghost" href="#projects">See my work</a>
+<header class="hero">
+  <div class="hero-inner">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">Viona Siagian</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
+    </nav>
+    <h1 class="sr" id="top">Viona Siagian</h1>
+    <div class="big" id="big" aria-hidden="true"><span>VIONA</span><span>SIAGIAN</span></div>
+    <!-- Put your cut-out photo (transparent PNG) next to this file and name it photo.png -->
+    <img class="portrait" id="portrait" src="photo.png" alt="Portrait of Viona Siagian" onerror="this.remove()">
+    <span class="pill p1">Actuarial Science, ITB</span>
+    <span class="pill p2">Pricing &amp; risk analytics</span>
+    <span class="pill p3">PAI certified</span>
+    <p class="blurb"><b>Pricing</b>, <b>modelling</b>, or the <b>numbers</b> in between: [one line on how you help a team].</p>
+    <div class="card">
+      <small>Latest role</small><b>Pricing Actuary Intern, AXA Financial Indonesia</b>
+      <small>Location</small><b>Jakarta, Indonesia</b>
+      <time id="clock"></time> WIB
     </div>
-  </header>
+    <a class="down" href="#about" aria-label="Scroll to About">&#8595;</a>
+  </div>
+</header>
+<div class="wrap">
 
   <section id="about">
     <h2>About</h2>
@@ -136,5 +155,20 @@ footer{padding:36px 0 56px;color:var(--muted);font-size:.9rem;border-top:1px sol
 
   <footer>© 2026 Viona Siagian</footer>
 </div>
+<script>
+// Live Jakarta clock
+const clock=document.getElementById('clock');
+const fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Jakarta',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+(function tick(){clock.textContent=fmt.format(new Date());setTimeout(tick,1000)})();
+// Name and portrait drift in opposite directions as the mouse moves (depth effect)
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const big=document.getElementById('big'),pic=document.getElementById('portrait');
+  addEventListener('mousemove',e=>{
+    const x=(e.clientX/innerWidth-.5);
+    big.style.transform='translateX('+(x*-30)+'px)';
+    if(pic)pic.style.transform='translateX('+(x*14)+'px)';
+  });
+}
+</script>
 </body>
 </html>
